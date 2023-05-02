@@ -1,7 +1,10 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import { connectDB } from "@/util/database";
 
-export default function Home() {
+export default async function Home() {
+
+  const db = (await connectDB).db("noticeboard")
+  let result = await db.collection('post').find().toArray()
+  
   return (
     <div>
       Hello! 🎉
