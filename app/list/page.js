@@ -1,4 +1,5 @@
 import { connectDB } from "@/util/database";
+import Link from "next/link";
 
 export default async function List() {
     const db = (await connectDB).db("noticeboard")
@@ -8,10 +9,14 @@ export default async function List() {
             {
                 result.map((item) => {
                     return(
-                        <div className="list-item" key={item._id}>
+                        <Link 
+                            className="list-item" 
+                            key={item._id}
+                            href={`/detail/${item._id}`}
+                        >
                             <h4>{item.title}</h4>
                             <p>{item.content}</p>
-                        </div>
+                        </Link>
                     )
                 })
             }

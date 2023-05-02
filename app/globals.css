@@ -7,17 +7,24 @@ body{
 }
 
 .list-item {
+  display: block;
+  text-decoration: none;
   background: white;
   border-radius: 10px;
   padding: 20px;
   margin-bottom: 5px;
   box-shadow: rgb(224, 224, 224) 0px 2px 4px 0px;
+  transition: all .2s ease;
+}
+.list-item:hover{
+  transform: scale(1.01);
 }
 
 .list-item h4 {
   font-size: 20px;
   font-weight: 800;
   margin: 0;
+  color: #000;
 }
 
 .list-item p {
