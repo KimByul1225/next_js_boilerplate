@@ -10,7 +10,7 @@ export default function DetailLink() {
     console.log("urlPath", urlPath); // 해당 url의 paht name을 불러온다.
 
     const params = useParams()
-    console.log("useParams", params);
+    console.log("useParams", params); // 해당 url의 파라미터를 불러온다.
 
     const searchParams = useSearchParams()
     console.log("schParams", searchParams); // 쿼리스트링을 불러온다.
