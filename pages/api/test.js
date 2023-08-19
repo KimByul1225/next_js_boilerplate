@@ -1,4 +1,13 @@
-export default function handler(요청, 응답) {
-    console.log("데이터")
-    return 응답.status(200).json('처리완료')
+import { connectDB } from "@/util/database";
+
+const db = (await connectDB).db("noticeboard")
+let result = await db.collection('post').find().toArray()
+
+export default function handler(req, res) {
+    if (req.method == 'GET') {
+        res.status(200).json(result)
+    }
+    if (req.method == 'POST') {
+        res.status(200).json({ name: 'POST 방식' })
+    }
 }
