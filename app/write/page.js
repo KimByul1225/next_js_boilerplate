@@ -1,41 +1,21 @@
-"use client"
-
-import { useState } from "react"
-
 export default function Write() {
-    const [boardDetail, setBoardDetail] = useState({
-        title: "",
-        body: ""
-    }); 
-
-
-    const inputHandler = (e) => {
-        const { value, name } = e.target;
-        setBoardDetail({
-            ...boardDetail,
-            [name] : value
-        })
-    }
-
     return (
-        <div>
+        <div className="p-20">
             <h4>글작성</h4>
-            <form action="/api/write" method="POST">
+            <form action="/api/post/new" method="POST">
                 <div>
-                    <h5>제목</h5>
+                    제목
                     <input 
                         type="text" 
                         name="title"
-                        value={boardDetail.title}
-                        onChange={inputHandler}
+                        placeholder="제목을 작성해 주세요."
                     />
                 </div>
                 <div>
-                    <h5>내용</h5>
+                    내용
                     <textarea
-                        name="body"
-                        value={boardDetail.body}
-                        onChange={inputHandler}
+                        name="content"
+                        placeholder="내용을 작성해 주세요."
                     />
                 </div>
                 <button type="submit">버튼</button>

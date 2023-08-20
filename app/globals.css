@@ -1,6 +1,26 @@
 body{
   margin: 0;
 }
+
+header {
+  padding-bottom: 30px;
+  border-bottom: 1px solid #000;
+}
+
+main{
+  padding: 30px 0;
+  border-bottom: 1px solid #000;
+}
+
+footer{
+  padding: 30px 0;
+}
+
+nav a{
+  display: inline-block;
+  margin: 0 20px;
+}
+
 .list-bg {
   background: rgb(249, 250, 255);
   padding: 10px;
@@ -30,4 +50,29 @@ body{
 .list-item p {
   color: grey;
   margin: 5px 0px;
+}
+
+.p-20 {
+  padding: 20px;
+}
+
+input {
+  box-sizing: border-box;
+  padding: 10px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+textarea{
+  box-sizing: border-box;
+  padding: 10px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 15px;
+  background: lightgray;
+  border: none;
+  border-radius: 5px;
 }

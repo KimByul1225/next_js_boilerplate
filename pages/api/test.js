@@ -1,7 +1,5 @@
 import { connectDB } from "@/util/database";
 
-
-
 export default async function handler(req, res) {
     if (req.method == 'GET') {
         const db = (await connectDB).db("noticeboard")

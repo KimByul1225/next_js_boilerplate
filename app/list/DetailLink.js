@@ -19,7 +19,7 @@ export default function DetailLink() {
         <button
             onClick={() => { router.push('/'); }}
         >
-            메인페이지로
+            홈으로
         </button>
     )
 }

@@ -1,6 +1,7 @@
-import './globals.css'
-import { Inter } from 'next/font/google'
-import DetailLink from './list/DetailLink'
+import './globals.css';
+import { Inter } from 'next/font/google';
+import DetailLink from './list/DetailLink';
+import Link from 'next/link';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,12 +13,21 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      
       <body className={inter.className}>
-        {children}
-        <hr />
-        <DetailLink />
-
-        
+        <header>
+          <nav>
+            <DetailLink />
+            <Link href="/list">글 목록</Link>
+            <Link href="/write">글 작성</Link>
+          </nav>
+        </header>
+        <main>
+          {children}
+        </main>
+        <footer>
+          footer입니다. footer입니다. footer입니다.
+        </footer>
       </body>
       
     </html>
