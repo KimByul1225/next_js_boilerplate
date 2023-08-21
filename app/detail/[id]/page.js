@@ -1,5 +1,7 @@
 import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb";
+import Link from "next/link";
+
 
 export default async function Detail(props) {
     const db = (await connectDB).db("noticeboard")
@@ -10,7 +12,15 @@ export default async function Detail(props) {
             <h4>{result.title}</h4>
             <p>{result.content}</p>
 
+
             <p>parameter : {props.params.id}</p>
+
+            <hr />
+            <Link
+                href={`/edit/${props.params.id}`}
+            >
+                ✏️ 글 수정하기
+            </Link>
         </div>
     )
 }
