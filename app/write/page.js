@@ -18,7 +18,7 @@ export default function Write() {
                         placeholder="내용을 작성해 주세요."
                     />
                 </div>
-                <button type="submit">버튼</button>
+                <button type="submit">등록</button>
             </form>
         </div>
     )

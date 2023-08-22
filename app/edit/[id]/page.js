@@ -1,17 +1,16 @@
 import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb";
-import Link from "next/link";
 
 
 export default async function Edit(props) {
     const db = (await connectDB).db("noticeboard")
     let result = await db.collection('post').findOne({ _id: new ObjectId(props.params.id) })
-
-    // await db.collection('post').updateOne({수정할 게시물정보}, {$set : {title: '', constent: ''}})
+    //DB에서 해당 글의 상세 내용을 불러오는 작업을 실행.
+    
     return (
         <div className="p-20">
             <h4>수정 페이지</h4>
-            <form action="/api/post/new" method="POST">
+            <form action="/api/post/edit" method="POST">
                 <div>
                     제목
                     <input
@@ -27,7 +26,12 @@ export default async function Edit(props) {
                         defaultValue={result.content}
                     />
                 </div>
-                <button type="submit">버튼</button>
+                <input 
+                    type="hidden" 
+                    name="_id"
+                    defaultValue={result._id.toString()}
+                />
+                <button type="submit">수정</button>
             </form>
         </div>
     )
