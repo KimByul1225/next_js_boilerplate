@@ -40,6 +40,7 @@ nav a{
   padding: 20px;
   margin-bottom: 10px;
   box-shadow: rgb(224, 224, 224) 0px 2px 4px 0px;
+  opacity: 1;
   transition: all .2s ease;
 }
 .list-item:hover{

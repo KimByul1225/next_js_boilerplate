@@ -1,6 +1,5 @@
 'use client'
 import Link from "next/link";
-import { useEffect } from "react";
 
 export default function ListItem({result}) {
     return (
@@ -18,9 +17,10 @@ export default function ListItem({result}) {
                             >
                                 <h4>{item.title}</h4>
                                 <p>{item.content}</p>
+                                <p>{item._id}</p>
                             </Link>
                             <button
-                                onClick={()=>{
+                                onClick={(e)=>{
                                     fetch('/api/post/delete', { method: 'DELETE', body: item._id })
                                     .then((r) => {
                                         if (r.status == 200) {
@@ -32,9 +32,10 @@ export default function ListItem({result}) {
                                     .then((result) => {
                                         //성공시 실행할코드
                                         console.log(result);
-                                    }).catch((error) => {
-                                        //인터넷문제 등으로 실패시 실행할코드
-                                        console.log(error)
+                                        e.target.parentElement.style.opacity = 0;
+                                        setTimeout(() => {
+                                            e.target.parentElement.style.display = 'none'
+                                        },500)
                                     })
                                 }}
                             >
