@@ -17,7 +17,7 @@ export default function ListItem({result}) {
                             >
                                 <h4>{item.title}</h4>
                                 <p>{item.content}</p>
-                                <p>{item._id}</p>
+                                {/* <p>{item._id}</p> */}
                             </Link>
                             <button
                                 onClick={(e)=>{
