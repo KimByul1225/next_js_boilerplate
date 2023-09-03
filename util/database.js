@@ -15,3 +15,4 @@ if (process.env.NODE_ENV === 'development') {
     // 해당부분을 변수에 저장해놓고 사용하면 매번 DB에 접근하는 코드를 실행 하지 않아도 됨.
 }
 export { connectDB }
+
