@@ -3,6 +3,7 @@ import { ObjectId } from "mongodb";
 import { getServerSession } from "next-auth";
 import Link from "next/link";
 import { authOptions } from "../../../pages/api/auth/[...nextauth]";
+import Comment from "./Comment";
 
 
 export default async function Detail(props) {
@@ -32,6 +33,7 @@ export default async function Detail(props) {
                 </Link>
             }
             {/* 수정을 위한 버튼 생성 */}
+            <Comment/>
         </div>
     )
 }
