@@ -12,7 +12,6 @@ export default function Comment({ _id }) {
         .then(r=>r.json())
         .then((result) => {
             setCommentList(result);
-            console.log(result);
         })
     }, [_id])
 
@@ -21,16 +20,22 @@ export default function Comment({ _id }) {
             <div>댓글 목록 영역</div>
             <input 
                 type="text" 
+                value={comment}
                 onChange={(e) => {setComment(e.target.value)}}
             />
             <button
                 onClick={() => {
+                    setComment('');
                     fetch('/api/comment/new', {
                         method: 'POST', 
                         body : JSON.stringify({
                             comment: comment,
                             _id: _id
                         })
+                    })
+                    .then(r => r.json())
+                    .then((result) => {
+                        alert(result);
                     })
                 }}
             >
