@@ -11,7 +11,7 @@ export default async function handler(req, res) {
     let session = await getServerSession(req, res, authOptions);
     // getServerSession을 사용해서 로그인한 유저의 정보를 불러옴
     if (req.method == 'POST') {
-        if (!Object.keys(req.body).includes("comment")) {
+        if (comment == '') {
             return res.status(500).json('댓글 작성이 필요합니다.')
         }
         if (session) {
@@ -25,8 +25,8 @@ export default async function handler(req, res) {
         }
         try{
             const db = (await connectDB).db("noticeboard")
-            let result = db.collection('comment').insertOne(commentData);
-            // res.status(200).json('저장완료')
+            db.collection('comment').insertOne(commentData);
+            res.status(200).json(commentData)
         } catch{
             return res.status(400).json('에러가 발생했습니다.')
         }

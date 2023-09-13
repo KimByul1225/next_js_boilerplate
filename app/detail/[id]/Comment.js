@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 
 export default function Comment({ _id }) {
-    const [comment, setComment] = useState();
+    const [comment, setComment] = useState('');
     const [commentList, setCommentList] = useState([]);
 
     useEffect(() => {
@@ -33,9 +33,13 @@ export default function Comment({ _id }) {
                             _id: _id
                         })
                     })
-                    .then(r => r.json())
+                    .then(res => res.json())
                     .then((result) => {
-                        alert(result);
+                        if (typeof result === 'object'){
+                            setCommentList(prev => [...prev, result])
+                        }else{
+                            alert(result);
+                        }
                     })
                 }}
             >
