@@ -33,7 +33,9 @@ export default async function Detail(props) {
                 </Link>
             }
             {/* 수정을 위한 버튼 생성 */}
-            <Comment/>
+            <Comment
+                _id={result._id.toString()}
+            />
         </div>
     )
 }
