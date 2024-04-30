@@ -83,3 +83,11 @@ button {
   border: none;
   border-radius: 5px;
 }
+
+.dark-mode .navbar {
+  background: #222;
+}
+
+.dark-mode .navbar a {
+  color: white;
+}
