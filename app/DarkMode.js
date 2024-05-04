@@ -7,7 +7,7 @@ export default function DarkMode() {
     let theme = ('; ' + document.cookie).split(`; mode=`).pop().split(';')[0];
 
     useEffect(() => {
-        if (theme == '') {
+        if (theme === '') {
             document.cookie = 'mode=light; max-age=' + (3600 * 24 * 400)
         }
     }, [])
